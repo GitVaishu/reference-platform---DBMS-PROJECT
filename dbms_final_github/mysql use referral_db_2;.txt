@@ -1,0 +1,85 @@
+mysql> use referral_db_2;
+Database changed
+mysql> show tables;
++-------------------------+
+| Tables_in_referral_db_2 |
++-------------------------+
+| professionals           |
+| professionals_backup    |
+| reference_requests      |
+| students                |
+| students_backup         |
++-------------------------+
+5 rows in set (0.15 sec)
+
+mysql> desc professionals;
++-----------------+--------------+------+-----+---------+----------------+
+| Field           | Type         | Null | Key | Default | Extra          |
++-----------------+--------------+------+-----+---------+----------------+
+| professional_id | int          | NO   | PRI | NULL    | auto_increment |
+| name            | varchar(100) | YES  |     | NULL    |                |
+| email           | varchar(100) | NO   | UNI | NULL    |                |
+| password        | varchar(255) | NO   |     | NULL    |                |
+| organization    | varchar(100) | YES  |     | NULL    |                |
+| field           | varchar(100) | YES  |     | NULL    |                |
++-----------------+--------------+------+-----+---------+----------------+
+6 rows in set (0.03 sec)
+
+mysql> desc professionals_backup;
++-----------------+--------------+------+-----+-------------------+-------------------+
+| Field           | Type         | Null | Key | Default           | Extra             |
++-----------------+--------------+------+-----+-------------------+-------------------+
+| professional_id | int          | NO   | PRI | NULL              | auto_increment    |
+| name            | varchar(100) | YES  |     | NULL              |                   |
+| email           | varchar(100) | NO   | UNI | NULL              |                   |
+| password        | varchar(255) | NO   |     | NULL              |                   |
+| organization    | varchar(100) | YES  |     | NULL              |                   |
+| field           | varchar(100) | YES  |     | NULL              |                   |
+| deleted_at      | timestamp    | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
++-----------------+--------------+------+-----+-------------------+-------------------+
+7 rows in set (0.01 sec)
+
+mysql> desc reference_requests;
++-----------------+---------------------------------------+------+-----+-------------------+-------------------+
+| Field           | Type                                  | Null | Key | Default           | Extra             |
++-----------------+---------------------------------------+------+-----+-------------------+-------------------+
+| request_id      | int                                   | NO   | PRI | NULL              | auto_increment    |
+| student_id      | int                                   | YES  | MUL | NULL              |                   |
+| professional_id | int                                   | YES  | MUL | NULL              |                   |
+| status          | enum('Pending','Accepted','Rejected') | YES  |     | Pending           |                   |
+| request_date    | datetime                              | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+| message         | text                                  | YES  |     | NULL              |                   |
+| resume_url      | varchar(255)                          | YES  |     | NULL              |                   |
++-----------------+---------------------------------------+------+-----+-------------------+-------------------+
+7 rows in set (0.01 sec)
+
+mysql> desc students;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| student_id | int          | NO   | PRI | NULL    | auto_increment |
+| name       | varchar(100) | YES  |     | NULL    |                |
+| email      | varchar(100) | NO   | UNI | NULL    |                |
+| password   | varchar(255) | NO   |     | NULL    |                |
+| resume_url | text         | YES  |     | NULL    |                |
+| experience | text         | YES  |     | NULL    |                |
+| photo_url  | text         | YES  |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+7 rows in set (0.00 sec)
+
+mysql> desc students_backup;
++------------+--------------+------+-----+-------------------+-------------------+
+| Field      | Type         | Null | Key | Default           | Extra             |
++------------+--------------+------+-----+-------------------+-------------------+
+| student_id | int          | NO   | PRI | NULL              | auto_increment    |
+| name       | varchar(100) | YES  |     | NULL              |                   |
+| email      | varchar(100) | NO   | UNI | NULL              |                   |
+| password   | varchar(255) | NO   |     | NULL              |                   |
+| resume_url | text         | YES  |     | NULL              |                   |
+| experience | text         | YES  |     | NULL              |                   |
+| photo_url  | text         | YES  |     | NULL              |                   |
+| deleted_at | timestamp    | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
++------------+--------------+------+-----+-------------------+-------------------+
+8 rows in set (0.01 sec)
+
+mysql>
