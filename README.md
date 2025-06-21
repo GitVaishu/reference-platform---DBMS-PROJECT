@@ -47,26 +47,12 @@ ReferralConnect was created to solve this problem by:
 | IDE           | Eclipse IDE                             |
 
 ---
-## File Strucutres
-ReferralConnect/
-│
-├── finaldbms/                # Java Source Code (JSP + Servlets)
-├── Servers/                  # Server settings (Apache Tomcat)
-├── mysql use referral_db_2.txt   # SQL script
-├── finaldbmsproject.zip      # Backup of full project (optional)
----
 
 ## 🖥 Preview of project
 
-[image](https://github.com/user-attachments/assets/5adb5e2b-3685-465b-848c-d23081093a68)
+![image](https://github.com/user-attachments/assets/5adb5e2b-3685-465b-848c-d23081093a68)
 ![image](https://github.com/user-attachments/assets/0e6f771d-1c98-4afd-b22a-4f2dec701708)
 ![image](https://github.com/user-attachments/assets/6089213d-50ac-4219-bf32-ceb2d4c1ebbc)
-
-
-
-
-
----
 
 
 
